@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>{{ head_title }}</title>
+        <link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="stylesheets/app.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"
+              rel="stylesheet"
+              type="text/css"
+              media="screen" />
+        <link href="http://fonts.googleapis.com/css?family=Lobster|Cuprum:700,400&subset=latin,cyrillic"
+              rel="stylesheet"
+              type="text/css"
+              media="screen">
+        <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    </head>
+    <body>
+        <table class="container-table">
+            <thead>
+                <tr class="background-dark">
+                    <th class="title">
+                        <a href="/"><h1>City<span>online</span></h1></a>
+                    </th>
+                    <th class="menu">
+                        <button class="btn btn-success tooltips-init" rel="tooltip" data-placement="bottom"
+                                data-original-title="Sorry, not this time.. :)">
+                            <i class="icon-plus icon-white"></i>
+                            Add event
+                        </button>
+                        <button class="btn btn-info tooltips-init" rel="tooltip" data-placement="bottom"
+                                data-original-title="Menu">
+                            <i class="icon-align-justify icon-white"></i>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div id="map"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script type="text/javascript">
+//            var MAP_CENTER_LONG = 44;
+//            var MAP_CENTER_LAT = 45;
+        </script>
+        <!--<script-->
+            <!--type="text/javascript"-->
+            <!--src="http://api-maps.yandex.ru/2.0/?coordorder=latlong&load=package.full&lang=ru-RU"-->
+        <!--</script>-->
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+        <!--<script type="text/javascript" src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>-->
+        <!--<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>-->
+        <!--<script type="text/javascript" src="javascripts/moment.min.js"></script>-->
+        <!--<script type="text/javascript" src="javascripts/lang/moment.ru.min.js"></script>-->
+        <!--<script type="text/javascript" src="javascripts/app.js"></script>-->
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script type="text/javascript">
+            setTimeout(function () {
+                // create a map in the "map" div, set the view to a given place and zoom
+                var map = L.map('map').setView([51.505, -0.09], 13);
+
+                // add an OpenStreetMap tile layer
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                // add a marker in the given location, attach some popup content to it and open the popup
+                L.marker([51.5, -0.09]).addTo(map)
+                        .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
+                        .openPopup();
+            }, 1000);
+        </script>
+    </body>
+</html>
